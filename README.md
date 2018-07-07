@@ -1,9 +1,10 @@
 ## Quick-Start-Packet ##
-This packet introduce a simple way to provide services for the BOLT SDK developing/testing.  
+This packet introduce a simple way to provide essential services for the BOLT SDK developing/testing.  
 Support macOS X and ubuntu 16.04.
 
-### Services ###
-The services include ```gringotts``` , ```postgres``` and ```gethpoa```.
+### Essential Services ###
+The services include ```gringotts``` , ```postgres``` and ```gethpoa```.  
+Each service run as individual docker container.
 
 #### gringotts ####
 [gringotts](https://github.com/BOLT-Protocol/gringotts) provide transaction processing and data storage. Furthermore, it is designed to build Indexed Merkle Trees and distribute receipts for security purposes of BOLT protocol. 
@@ -11,21 +12,30 @@ The services include ```gringotts``` , ```postgres``` and ```gethpoa```.
 This service expose port ```3000```. 
 
 #### postgres ####
-A postgresql database which db name as ```gringot``` ,user name as ```harry``` and password as ```potter```.  
-This database is the storage for gringotts service.   
+A postgresql database which ```gringot``` db name ,```harry``` as user name and ```potter``` as password.  
+This postgres provide the data storage for gringotts service.   
 
 This service expose port ```5432```.
 
 #### gethpoa ####
-A ethereum geth node which using POA consensus to provide rapid generation rate of block.   
-This node is under ```private chain``` for developing and testing purpose.
+A ethereum geth node which using POA consensus to provide rapid block generation rate.   
+This node has it's own genesis so it run as a ```private chain``` for developing and testing purpose.
 
 This service expose port ```8545```.
 
 ## How To Use ##
+This packet is dessigend to be as easy as posibble to use.  
+Once you install docker and docker-compose ,  
+only two more step is required to build whole services.
 
 ### Step 1 ###
+Install docker and docker-compose on your machine.
+
+### Step 2 ###
 Copy .env.example into .env ,then modify the variable which is ```required``` type in .env
+```
+cp .env.example .env
+```
 
 ### Step 2 ###
 Start all services.
