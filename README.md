@@ -4,16 +4,17 @@ Support macOS X and ubuntu 16.04.
 
 ### Essential Services ###
 The services include ```gringotts``` , ```postgres``` and ```gethpoa```.  
-Each service run as individual docker container.
+Each service run as an individual docker container.
 
 #### gringotts ####
-[gringotts](https://github.com/BOLT-Protocol/gringotts) provide transaction processing and data storage. Furthermore, it is designed to build Indexed Merkle Trees and distribute receipts for security purposes of BOLT protocol. 
+[gringotts](https://github.com/BOLT-Protocol/gringotts) provide transaction processing and data storage.  
+Furthermore, it is designed to build Indexed Merkle Trees and distribute receipts for security purposes of BOLT protocol. 
 
 This service expose port ```3000```. 
 
 #### postgres ####
-A postgresql database which ```gringot``` db name ,```harry``` as user name and ```potter``` as password.  
-This postgres provide the data storage for gringotts service.   
+A postgresql database which as ```gringot``` db name ,```harry``` as user name and ```potter``` as password.  
+This service provide the data storage for gringotts service.   
 
 This service expose port ```5432```.
 
@@ -25,16 +26,19 @@ This service expose port ```8545```.
 
 ## How To Use ##
 This packet is dessigend to be as easy as posibble to use.  
-Once you install docker and docker-compose ,  
+Once you install the docker and docker-compose ,  
 only two more step is required to build whole services.
 
 ### Step 1 ###
 Install docker and docker-compose on your machine.
 
 ### Step 2 ###
+Clone this project.
 Copy .env.example into .env ,then modify the variable which is ```required``` type in .env
 ```
+git clone git@github.com:BOLT-Protocol/quick-start-packet.git 
 cp .env.example .env
+vim .env
 ```
 
 ### Step 3 ###
