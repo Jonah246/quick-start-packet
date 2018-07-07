@@ -37,7 +37,7 @@ Copy .env.example into .env ,then modify the variable which is ```required``` ty
 cp .env.example .env
 ```
 
-### Step 2 ###
+### Step 3 ###
 Start all services.
 ```
 docker-compose up -d
