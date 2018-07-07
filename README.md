@@ -33,10 +33,11 @@ only two more step is required to build whole services.
 Install docker and docker-compose on your machine.
 
 ### Step 2 ###
-Clone this project.
+Clone this project.  
 Copy .env.example into .env ,then modify the variable which is ```required``` type in .env
 ```
 git clone git@github.com:BOLT-Protocol/quick-start-packet.git 
+cd quick-start-packet
 cp .env.example .env
 vim .env
 ```
@@ -45,6 +46,11 @@ vim .env
 Start all services.
 ```
 docker-compose up -d
+```
+
+Stop all services
+```
+docker-compose down
 ```
 
 ### NOTE ###
