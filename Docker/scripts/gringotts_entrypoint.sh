@@ -108,12 +108,17 @@ function _provision {
 
     cd $GRINGOTTS_SPACE
     _produceGringottsEnvJS $sideChainAddress
+    NODE_ENV=production ./node_modules/.bin/sequelize \
+    db:migrate:undo:all --config env.js \
+    --migrations-path ./storage-manager/migrations \
+    --models-path ./storage-manager/models
 
     # Try to re-create old db after deploy new SideChain
     # https://www.tutorialspoint.com/postgresql/postgresql_drop_database.htm
     # https://dba.stackexchange.com/questions/14740/how-to-use-psql-with-no-password-prompt
-    PGPASSWORD=potter dropdb -h postgres -p 5432 -U harry gringot
-    #PGPASSWORD=potter createdb -h postgres -p 5432 -U harry gringot
+    # PGPASSWORD=potter dropdb -h postgres -p 5432 -U harry gringot    
+    # PGPASSWORD=potter createdb -h postgres -p 5432 -U harry gringot
+
 
     echo $POA_SIGNER_ADDRESS > $POA_SIGNER_ADDRESS_FILE
     echo $POA_SIGNER_PWD > $POA_SIGNER_PWD_FILE

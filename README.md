@@ -1,5 +1,5 @@
 ## Quick-Start-Packet ##
-This packet introduce a simple way to provide services for the BOLT SDK developing/testing.
+This packet introduce a simple way to provide services for the BOLT SDK developing/testing.  
 Support macOS X and ubuntu 16.04.
 
 ### Services ###
@@ -57,13 +57,13 @@ POA_SIGNER_PRI_KEY= 1234
 The default value of ```optional``` variable:
 ```
 # The private key of geth poa signer
-POA_SIGNER_PRI_KEY=18c55c27f047f21ed3f42588c6ec0b2a50c77ceba223439ee9744bb86ed8fa5c
+POA_SIGNER_PRI_KEY=22b8af6522a7cf410b54eb8be2969c2ee20d30e89a1a2dc5476a8cccc1be8592
 
 # The address of geth poa signer
-POA_SIGNER_ADDRESS=0x50afb1b4c52c64daed49ab8c3aa82b0609b75db0
+POA_SIGNER_ADDRESS=0x9644fb7d0108a6B7e52cab5171298969a427CaCD
 
 # The password of geth poa signer
-POA_SIGNER_PWD=2wsx4rfv
+POA_SIGNER_PWD=123qwe456RTY
 
 # The time to generate the block in seconds
 BLOCK_GENERATING_TIME=3
