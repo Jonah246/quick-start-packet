@@ -48,11 +48,6 @@ Start all services.
 docker-compose up -d
 ```
 
-Stop all services
-```
-docker-compose down
-```
-
 ### NOTE ###
 There are two type of variable in .env
 
