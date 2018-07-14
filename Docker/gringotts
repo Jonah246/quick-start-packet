@@ -1,13 +1,12 @@
 FROM node:8.9
 LABEL ken <ken.lin@infinitechain.io>
 
-ARG CONTRACTS_VERSION
-ARG GRINGOTTS_VERSION  
-
-RUN apt-get update && \
-    apt-get install python -y && \
-    apt-get install build-essential -y && \
-    apt-get install postgresql-client -y && \
+RUN apt-get update && apt-get install -y \
+    python \
+    build-essential \
+    postgresql-client \
+ && apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
     npm install -g pm2 && \
     npm install -g truffle@4.1.7
 
@@ -23,6 +22,9 @@ RUN mkdir -p $APP_ROOT \
     mkdir -p $MOUNT_DATA_DIR \
     mkdir -p $CONTRACTS_SPACE \
     mkdir -p $GRINGOTTS_SPACE
+
+ARG CONTRACTS_VERSION
+ARG GRINGOTTS_VERSION  
 
 RUN git clone https://github.com/BOLT-Protocol/contracts.git $CONTRACTS_SPACE && \
     cd $CONTRACTS_SPACE && git checkout $CONTRACTS_VERSION && cd $GRIN_CONTRACTS_SPACE && npm install && \
@@ -42,5 +44,7 @@ COPY ./template/gringotts.env.js.tpl \
 EXPOSE 3000
 
 RUN chmod +x $GRINGOTTS_SPACE/gringotts_entrypoint.sh   
+#RUN ["chmod","+x","$GRINGOTTS_SPACE/gringotts_entrypoint.sh"]
 
 ENTRYPOINT $GRINGOTTS_SPACE/gringotts_entrypoint.sh
+#ENTRYPOINT ["$GRINGOTTS_SPACE/gringotts_entrypoint.sh"]
