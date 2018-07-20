@@ -57,7 +57,7 @@ function _initGeth {
 
     # Modify genesis file
     cp gethpoa.genesis.json.tpl gethpoa.genesis.json
-    _modGenesis gethpoa.genesis.json $POA_SIGNER_ADDRESS $BLOCK_GENERATING_TIME
+    #_modGenesis gethpoa.genesis.json $POA_SIGNER_ADDRESS $BLOCK_GENERATING_TIME
     mv gethpoa.genesis.json $GETH_DATA_DIR/gethpoa.genesis.json
 
     # Run geth init
